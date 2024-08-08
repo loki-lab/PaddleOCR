@@ -52,21 +52,21 @@ Architecture:
         last_conv_stride: [ 1, 2 ]
         last_pool_type: avg
         last_pool_kernel_size: [ 2, 2 ]
-        Head:
-          name: MultiHead
-          head_list:
-            - CTCHead:
-                Neck:
-                  name: svtr
-                  dims: 64
-                  depth: 2
-                  hidden_dims: 120
-                  use_guide: True
-                Head:
-                  fc_decay: 0.00001
-            - SARHead:
-                enc_dim: 512
-                max_text_length: *max_text_length
+      Head:
+        name: MultiHead
+        head_list:
+          - CTCHead:
+              Neck:
+                name: svtr
+                dims: 64
+                depth: 2
+                hidden_dims: 120
+                use_guide: True
+              Head:
+                fc_decay: 0.00001
+          - SARHead:
+              enc_dim: 512
+              max_text_length: *max_text_length
 
     Student:
       pretrained:
@@ -81,21 +81,21 @@ Architecture:
         last_conv_stride: [ 1, 2 ]
         last_pool_type: avg
         last_pool_kernel_size: [ 2, 2 ]
-        Head:
-          name: MultiHead
-          head_list:
-            - CTCHead:
-                Neck:
-                  name: svtr
-                  dims: 64
-                  depth: 2
-                  hidden_dims: 120
-                  use_guide: True
-                Head:
-                  fc_decay: 0.00001
-            - SARHead:
-                enc_dim: 512
-                max_text_length: *max_text_length
+      Head:
+        name: MultiHead
+        head_list:
+          - CTCHead:
+              Neck:
+                name: svtr
+                dims: 64
+                depth: 2
+                hidden_dims: 120
+                use_guide: True
+              Head:
+                fc_decay: 0.00001
+          - SARHead:
+              enc_dim: 512
+              max_text_length: *max_text_length
 
 Loss:
   name: CombinedLoss
